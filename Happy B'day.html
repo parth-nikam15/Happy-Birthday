@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Dhwani!</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f5a9f3, #ffdbf4);
+      overflow: hidden;
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    .birthday-container {
+      position: relative;
+      text-align: center;
+    }
+
+    .message {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: pink;
+      background-color: purple;
+      padding: 20px 40px;
+      border-radius: 15px;
+      text-transform: uppercase;
+      animation: blink 1s infinite, swing 2s infinite ease-in-out;
+      display: inline-block;
+      border: 5px solid yellow;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+
+    @keyframes swing {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(10deg); }
+      50% { transform: rotate(-10deg); }
+      75% { transform: rotate(10deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    /* Confetti Animation */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #ffcc00;
+      animation: confetti 4s linear infinite;
+    }
+
+    @keyframes confetti {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="birthday-container">
+    <div class="message">Happiest Birthday Dear Dhwani</div>
+    <!-- Confetti Elements -->
+    <div class="confetti" style="left: 10%; background-color: red;"></div>
+    <div class="confetti" style="left: 25%; background-color: orange;"></div>
+    <div class="confetti" style="left: 40%; background-color: green;"></div>
+    <div class="confetti" style="left: 55%; background-color: blue;"></div>
+    <div class="confetti" style="left: 70%; background-color: purple;"></div>
+    <div class="confetti" style="left: 85%; background-color: pink;"></div>
+  </div>
+
+  <script>
+    // Generate more confetti dynamically
+    const confettiColors = ['#ffcc00', '#ff6666', '#66ff66', '#6666ff', '#ff66ff'];
+    for (let i = 0; i < 50; i++) {
+      const confetti = document.createElement('div');
+      confetti.className = 'confetti';
+      confetti.style.left = Math.random() * 100 + '%';
+      confetti.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+      confetti.style.animationDelay = Math.random() * 4 + 's';
+      document.body.appendChild(confetti);
+    }
+  </script>
+</body>
+</html>
